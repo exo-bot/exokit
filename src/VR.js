@@ -1,7 +1,7 @@
 const {EventEmitter} = require('events');
 const {Event} = require('./Event');
 const THREE = require('../lib/three-min.js');
-const {defaultCanvasSize, defaultEyeSeparation} = require('./constants.js');
+const {defaultCanvasSize, defaultEyeSeparation, maxNumTrackers} = require('./constants.js');
 const GlobalContext = require('./GlobalContext');
 
 const localVector = new THREE.Vector3();
