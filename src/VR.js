@@ -611,7 +611,7 @@ const getGamepads = (() => {
   return () => {
     if (!gamepads) {
       gamepads = Array(2 + maxNumTrackers);
-      for (let i = 0; i < maxNumTrackers; i++) {
+      for (let i = 0; i < gamepads.length; i++) {
         let hand;
         if (i === 0) {
           hand = 'left';
