@@ -610,10 +610,18 @@ const getGamepads = (() => {
 
   return () => {
     if (!gamepads) {
-      gamepads = [
-        new Gamepad('left', 0),
-        new Gamepad('right', 1),
-      ];
+      gamepads = Array(2 + maxNumTrackers);
+      for (let i = 0; i < maxNumTrackers) {
+        let hand;
+        if (i === 0) {
+          hand = 'left';
+        } else if (i === 1) {
+          hand = 'right';
+        } else {
+          hand = null;
+        }
+        gamepads[i] = new Gamepad(hand, i);
+      }
     }
     return gamepads;
   };
