@@ -453,14 +453,7 @@ class XRState {
       };
     };
     this.gamepads = (() => {
-      const result = Array(2);
-      for (let i = 0; i < result.length; i++) {
-        result[i] = _makeGamepad();
-      }
-      return result;
-    })();
-    this.trackers = (() => {
-      const result = Array(maxNumTrackers);
+      const result = Array(2 + maxNumTrackers);
       for (let i = 0; i < result.length; i++) {
         result[i] = _makeGamepad();
       }
@@ -1275,7 +1268,7 @@ const _startRenderLoop = () => {
 
       // build tracker data
       const _loadTracker = i => {
-        const tracker = xrState.trackers[i];
+        const tracker = xrState.gamepads[2 + i];
         const trackerPoseArray = localFloat32TrackerPoseArrays[i];
         if (!isNaN(trackerPoseArray[0])) {
           tracker.connected[0] = true;
